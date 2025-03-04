@@ -1,0 +1,53 @@
+Order of Execution
+-------------------
+
+> Loads the original record from the database
+
+> Overwrites the old values with new values
+
+1) If request is from a standard UI Page
+   - Check for layout specific rules, valid field format, max field length, field definition.
+
+2) If request is from a custom source
+   - check for foreign keys.
+
+(If Multiline items are created, only then custom validation rules are run.)
+
+> Execute before record triggered flows
+
+> Execute all before triggers
+(Run System and Custom Validation Rules)
+
+> Execute Duplicate Rules
+(If record is a duplicate, no more execution, block the data entry)
+
+> save record to database, do not commit yet
+
+> Execute all after triggers
+
+> Execute assignment & auto response rules
+
+> Execute workflow rules
+(if there a field update, run system validation, execute before and after update trigger one more time)
+
+> Execute escalation rules
+
+> Execute Processes and flows
+(No Granteed order of execution)
+
+> Execute Record Triggered flows after record save
+
+> Execute Entitlement rules
+
+> If record contains Roll up/Cross object reference, parent is updated
+(same with the grandparent record too and so on)
+
+> Execute criteria based sharing
+
+> commit to database
+
+> Execute Post commit logic
+(Send Email
+Asyn jobs like Future, Queueable jobs
+Asyn paths in record triggered flows
+)
