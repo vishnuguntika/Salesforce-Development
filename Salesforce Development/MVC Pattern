@@ -1,0 +1,24 @@
+Salesforce follows the MVC Architecture.
+
+Database Layer - Model - Underlying Database represented by sObjects.
+
+User Interface Layer - View - The front end or the UI represented by the VF, Aura, LWC
+
+Business Logic Layer - Controller - Actions or event handlers written using javascript or automation tools.
+
+
+Salesforce groups customers into what is called an instance.
+
+Instances are also called Point of Deployment (PODS).
+This PODS contains everything an org needs to run.
+
+POD has the database, file system, and application server.
+
+each customer or businees need to have only one pod.
+
+
+what is an org?
+
+An org is the customer version of salesforce.
+
+As multiple customers share a common instance and databse, every org is uniquely identified by  an org id.
